@@ -1,28 +1,8 @@
-/*****************************************************************
- *
- *  NAME:               Marc Khristian Partoriza
- *
- *  HOMEWORK:           Project 2
- *
- *  CLASS:              ICS 212
- *
- *  INSTRUCTOR:         Ravi Narayan
- *
- *  DATE:               November 23, 2014
- *
- *  FILE:               record.h
- *
- *  DESCRIPTION:       This file contains the struct record that
- *                     holds the values for necessary to the data
- *                     base.
- ****************************************************************/
+llist:  iofunctions.o llist.o
+	 g++ -o llist -D debug iofunctions.o llist.o
 
+iofunctions.o: iofunctions.cpp debugMode.h record.h llist.h
+	g++ -c -ansi -Wall iofunctions.cpp
 
-struct record
-{
-    char              name[25];
-    char              address[80];
-    int               yearofbirth;
-    char              telno[15];
-    struct record*     next;
-};
+llist.cpp.o: llist.cpp debugMode.h record.h llist.h
+	g++ -c -ansi -Wall llist.cpp
